@@ -63,6 +63,7 @@ def on_message(client, userdata, msg):
     temperature_now = json_data["temperature"]
     #Detect Temperature Changes
     if temperature_now != last_temperature:
+        last_temperature = temperature_now
         print(str(TZ.localize(dt.now()))+" [Temperature] " +str(temperature_now) + "°C")       
 
 # Connect to the Broker
