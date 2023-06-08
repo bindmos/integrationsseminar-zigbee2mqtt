@@ -57,17 +57,7 @@ def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, version='3
 def on_message(client, userdata, msg):
     data = msg.payload.decode("utf-8")
     topic_values = str(msg.topic).split("/")
-    if(len(topic_values)==3):
-        if(topic_values[0].upper()=="PARKPLATZ"):
-            if(topic_values[1].upper()=="STATUS"):
-                try:
-                    print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))
-                except TypeError:
-                    print(str(TZ.localize(dt.now()))+" TypeError: Could not parse given MQTT-Payload")
-                except JSONDecodeError:
-                    print(str(TZ.localize(dt.now()))+" JSONDecodeError: Could not parse given MQTT-Payload")
-                except:
-                    print(str(TZ.localize(dt.now()))+" Unexpected Error:", sys.exc_info()[0])         
+    print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))       
 
 # Connect to the Broker
 def start_client(client, mqtt_host, mqtt_port):
