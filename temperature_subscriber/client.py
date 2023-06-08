@@ -56,7 +56,9 @@ def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, version='3
 # This is the action that happens when a message in the topic arrives
 def on_message(client, userdata, msg):
     data = msg.payload.decode("utf-8")
-    print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))       
+    #print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))
+    json_data = json.loads(data) #{"battery":100,"humidity":49.81,"linkquality":113,"temperature":25.99,"voltage":3100}
+    print(str(TZ.localize(dt.now()))+"[Temperature] " +str(json_data["temperature"]) + "°C")       
 
 # Connect to the Broker
 def start_client(client, mqtt_host, mqtt_port):
