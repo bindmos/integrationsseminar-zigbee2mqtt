@@ -7,6 +7,8 @@ from datetime import datetime as dt
 from config import TZ
 import uuid
 
+last_temperature = 0
+
 # Setup the client with credentials, topic, quality of service
 def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, version='3',mytransport='tcp'):
     clientid = uuid.uuid1
@@ -58,7 +60,10 @@ def on_message(client, userdata, msg):
     data = msg.payload.decode("utf-8")
     #print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))
     json_data = json.loads(data) #{"battery":100,"humidity":49.81,"linkquality":113,"temperature":25.99,"voltage":3100}
-    print(str(TZ.localize(dt.now()))+" [Temperature] " +str(json_data["temperature"]) + "°C")       
+    temperature_now = json_data["temperature"]
+    #Detect Temperature Changes
+    if temperature_now != last_temperature:
+        print(str(TZ.localize(dt.now()))+" [Temperature] " +str(temperature_now) + "°C")       
 
 # Connect to the Broker
 def start_client(client, mqtt_host, mqtt_port):
