@@ -41,7 +41,7 @@ def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, version='3
             disconnect(client, rc)
         
         def on_subscribe(client, userdata, mid, granted_qos):
-            print(str(TZ.localize(dt.now())) + " [Subscribe] to topic '" +str(mqtt_topic) + "' "+str(mid)+" "+str(reasonCodes))
+            print(str(TZ.localize(dt.now()))+ " [Subscribe] to topic '" +str(mqtt_topic) + "' "+str(mid)+" "+str(granted_qos))
     
     client.tls_set(ca_certs=None, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED,tls_version=ssl.PROTOCOL_TLS, ciphers=None)
 
