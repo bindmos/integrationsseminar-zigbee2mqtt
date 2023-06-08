@@ -72,7 +72,7 @@ def on_message(client, userdata, msg):
     global humidity_last
     if humidity_last != humidity_now:
         humidity_last = humidity_now
-        print(str(TZ.localize(dt.now()))+" [Humidity] " +str(humidity_now) + "°C")   
+        print(str(TZ.localize(dt.now()))+" [Humidity] " +str(humidity_now) + "%")   
 
 # Connect to the Broker
 def start_client(client, mqtt_host, mqtt_port):
