@@ -26,7 +26,7 @@ def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, version='3
             disconnect(client, reasonCode)
         
         def on_subscribe(client, userdata, mid, reasonCodes, properties):
-            print(str(TZ.localize(dt.now())) + " [Subscribe] "+str(mid)+" "+str(reasonCodes))
+            print(str(TZ.localize(dt.now())) + " [Subscribe] to topic '" +str(mqtt_topic) + "' "+str(mid)+" "+str(reasonCodes))
 
     if version == '3':
         client = paho.Client(client_id=clientid,
