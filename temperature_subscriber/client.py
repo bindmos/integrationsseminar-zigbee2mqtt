@@ -56,7 +56,6 @@ def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, version='3
 # This is the action that happens when a message in the topic arrives
 def on_message(client, userdata, msg):
     data = msg.payload.decode("utf-8")
-    topic_values = str(msg.topic).split("/")
     print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))       
 
 # Connect to the Broker
