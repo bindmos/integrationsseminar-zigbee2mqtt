@@ -1,20 +1,18 @@
-# Status-Stats Subscriber
+# Temperature Subscriber
 
 ## MQTT-Subscriber
 
-Send status values of Sensors to REST-API for statistics calculations
+Recieve Temperature data from Zigbee Sensor via MQTT
 
 ### Installation
 
 - Requirements: Docker, Docker-Compose
-- Run with ./deploy.sh
 
 ### Content of directories
 
-- status_mqtt: Source code of this MQTT-Subscriber
+- temperature_subscriber: Source code of this MQTT-Subscriber
 
 ### Technical details
 
 - MQTT-Communication based on Eclipse paho library for python
-- REST- Communication based on requests library for python  
-- Packaged as Docker Container  
+- Packaged as Docker Container
