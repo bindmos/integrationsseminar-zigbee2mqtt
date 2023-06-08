@@ -5,7 +5,7 @@ RUN pip install --no-cache-dir pipenv
 
 WORKDIR /usr/src/app
 COPY Pipfile Pipfile.lock ./
-COPY status_mqtt ./status_mqtt
+COPY temperature_subscriber ./temperature_subscriber
 
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
 

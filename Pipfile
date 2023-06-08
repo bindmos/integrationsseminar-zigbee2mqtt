@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 paho-mqtt = "*"
-requests = "*"
 pytz = "*"
 
 [dev-packages]
