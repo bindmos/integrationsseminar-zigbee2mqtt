@@ -1,0 +1,14 @@
+version: "2.2"
+services:
+  temperature-subscriber:
+    build: .
+    container_name: temperature-subscriber
+    restart: always
+    environment:
+      - "MQTT_HOST=089ab35f2077413fae0dfe80c33925ff.s2.eu.hivemq.cloud"
+      - "MQTT_PORT=8883"
+      - "MQTT_USERNAME=temperature-subscriber"
+      - "MQTT_PASSWORD=Temperature-Subscriber1"
+      - "MQTT_TOPIC=zigbee2mqtt/temperature-sensor"
+      - "MQTT_QOS=0"
+      - "TZ=Europe/Berlin"
