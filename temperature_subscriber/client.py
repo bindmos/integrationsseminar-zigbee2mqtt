@@ -4,9 +4,6 @@ from datetime import datetime as dt
 from config import TZ
 import uuid
 
-temperature_last = 0
-humidity_last = 0
-
 # Setup the client with credentials, topic, quality of service
 def create_client(mqtt_username, mqtt_password, mqtt_topic, mqtt_qos, on_message, version='3', mytransport='tcp'):
     clientid = uuid.uuid1

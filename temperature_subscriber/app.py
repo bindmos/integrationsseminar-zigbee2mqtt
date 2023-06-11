@@ -5,6 +5,9 @@ from lifecycle_manager import GracefulKiller
 from datetime import datetime as dt
 import json
 
+temperature_last = 0
+humidity_last = 0
+
 # This is the action that happens when a message in the topic arrives
 def on_message(client, userdata, msg):
     data = msg.payload.decode("utf-8")
@@ -12,16 +15,8 @@ def on_message(client, userdata, msg):
     json_data = json.loads(data) #{"battery":100,"humidity":49.81,"linkquality":113,"temperature":25.99,"voltage":3100}
     temperature_now = json_data["temperature"]
     humidity_now = json_data["humidity"]
-    #Detect Temperature Changes
-    global temperature_last
-    if temperature_last != temperature_now:
-        temperature_last = temperature_now
-        print(str(TZ.localize(dt.now()))+" [Temperature] " +str(temperature_now) + "°C")
-    #Detect Humidity Changes
-    global humidity_last
-    if humidity_last != humidity_now:
-        humidity_last = humidity_now
-        print(str(TZ.localize(dt.now()))+" [Humidity] " +str(humidity_now) + "%")   
+    print(str(TZ.localize(dt.now()))+" [Temperature] " +str(temperature_now) + "°C")
+    print(str(TZ.localize(dt.now()))+" [Humidity] " +str(humidity_now) + "%")   
 
 if __name__ == '__main__':
     print("Temperature Subscriber")
