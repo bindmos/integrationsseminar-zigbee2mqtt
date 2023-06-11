@@ -12,6 +12,7 @@ Recieve Temperature data from Zigbee Sensor via MQTT
 ### Installation
 
 - Requirements: Docker, Docker-Compose
+- Run Command `docker compose up -d --build`
 
 ### Content of directories
 
