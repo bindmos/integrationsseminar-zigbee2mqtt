@@ -14,6 +14,11 @@ Recieve Temperature data from Zigbee Sensor via MQTT
 - Requirements: Docker, Docker-Compose
 - Run Command `docker compose up -d --build`
 
+### Access the Broker
+
+The Broker is reachable under the following URL [localhost:1883](mqtt://localhost:1883)  
+No Authentication necessary
+
 ### Content of directories
 
 - broker: Basic Config File for Eclipse Mosquitto
