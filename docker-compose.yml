@@ -1,14 +1,38 @@
 version: "2.2"
 services:
+  # Eclipse Mosquitto Broker
+  # Port 1883
+  # Anonyme Authentifikation ohne Zugangsdaten aktiviert
+  mqtt-broker:
+    image: eclipse-mosquitto:2
+    container_name: broker
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf # Broker Config File
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+    networks:
+      - mqtt
+    ports:
+      - 1883:1883
+  # MQTT-Subscriber, der Temperaturdaten ausgibt, die an ihn übermittelt werden
   temperature-subscriber:
     build: .
     container_name: temperature-subscriber
-    restart: always
     environment:
-      - "MQTT_HOST=089ab35f2077413fae0dfe80c33925ff.s2.eu.hivemq.cloud"
-      - "MQTT_PORT=8883"
+      - "MQTT_HOST=broker.mqtt"
+      - "MQTT_PORT=1883"
       - "MQTT_USERNAME=temperature-subscriber"
       - "MQTT_PASSWORD=Temperature-Subscriber1"
       - "MQTT_TOPIC=zigbee2mqtt/temperature-sensor"
       - "MQTT_QOS=0"
       - "TZ=Europe/Berlin"
+    networks:
+      - mqtt
+networks:
+  mqtt:
+    name: mqtt
+volumes:
+  mosquitto-data:
+    name: mosquitto-data
+  mosquitto-log:
+    name: mosquitto-log
