@@ -1,10 +1,10 @@
 mqtt:
-  base_topic: zigbee2mqtt # Das gibt den Präfix des Topics aller MQTT-Nachrichten vor, die verschickt werden
-  server: mqtt://localhost:1883 # mqtts:// für TLS-Verschlüsselte Verbindungen
-  user: zigbee-usb # Nutzername beim Broker
-  password: ps&9!&yjkGgW6BrZ2SQb&vkPBBS$f9BZAkGA6&nL5B22NLY2x7Yfj%dK9735NnBA9QBwCT # Passwort beim Broker
+  base_topic: zigbee2mqtt
+  server: mqtt://localhost:1883
+  user: zigbee-usb
+  password: ps&9!&yjkGgW6BrZ2SQb&vkPBBS$f9BZAkGA6&nL5B22NLY2x7Yfj%dK9735NnBA9QBwCT
 serial:
-  port: \\.\COM5 # Herauszufinden im Geräte-Manager
+  port: \\.\COM5
 devices:
   '0x00124b0029195ebb':
     friendly_name: 'temperature-sensor'
