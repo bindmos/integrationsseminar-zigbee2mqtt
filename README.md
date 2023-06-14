@@ -17,7 +17,7 @@ Kommunikationsprotokolle in Klammern
 
 *"Von der Temperatur-Messung zum MQTT-Subscriber"*
 
-Temperatur-Sensor -> (Zigbee) -> Zigbee-USB-Dongle -> Anwendung Zigbee2MQTT -> (MQTT) -> Mosquitto-Broker -> (MQTT) -> Temperatur-Subscriber
+        Temperatur-Sensor -> (Zigbee) -> Zigbee-USB-Dongle -> Anwendung Zigbee2MQTT -> (MQTT) -> Mosquitto-Broker -> (MQTT) -> Temperatur-Subscriber
 
 # Temperatur-Subscriber und MQTT-Broker
 
@@ -26,11 +26,13 @@ Der Temperatur-Subscriber abonniert das Topic "zigbee2mqtt/temperature-sensor" u
 ## Installation
 
 1. Docker und Docker-Compose müssen lokal installiert sein
-2. Datei "docker-compose.yml"
+2. Datei "docker-compose.yml"  
 In der Datei "docker-compose.yml" sind über die Umgebungsvariablen Standardwerte definiert, mit denen Broker, Subscriber und die Zigbee2MQTT-Anwendung im Rahmen des Integrationsseminars betrieben wurden.
 3. Broker und Subscriber starten  
 Befehl im Hauptverzeichnis dieses Projekts ausführen  
 `docker compose up -d --build`
+
+    Zuerst wird das Docker-Image für den MQTT-Subscriber erstellt, anschließend werden Broker und Subscriber gestartet.
 
 ## Relevante Verzeichnisse
 
@@ -63,7 +65,8 @@ Es folgt das Protokoll der durchlaufenen Schritte für evtl. Reproduktion. Im ei
 1. Git und NodeJS 16 müssen lokal installiert sein. Das USB-Dongle muss in einen freien USB-Slot am PC gesteckt werden und betriebsbereit sein. Eine Treiberinstallation sollte nicht notwendig sein.
 2. Kommandozeile öffnen und in diesen Ordner navigieren
 3. Quellcode für Zigbee2MQTT von GitHub laden  
-Befehl: `git clone --depth 1 git@github.com:Koenkk/zigbee2mqtt.git src`
+Befehl  
+`git clone --depth 1 git@github.com:Koenkk/zigbee2mqtt.git src`
 4. Abhängigkeiten von Zigbee2MQTT herunterladen  
 Befehle  
 
@@ -102,9 +105,9 @@ Hierfür die Datei "data/configuration.yaml" bearbeiten und die entsprechenden A
 6. Start  
 Befehl: `npm start`
 
-Wenn der in der Konfigurationsdatei definiere Broker nicht erreicht werden kann, stürzt die Anwendung an dieser Stelle ab. Um fortzufahren, müssen je nach Fehlermeldung der Broker gestartet oder die Zugangsdaten überprüft werden.
+    Wenn der in der Konfigurationsdatei definiere Broker nicht erreicht werden kann, stürzt die Anwendung an dieser Stelle ab. Um fortzufahren, müssen je nach Fehlermeldung der Broker gestartet oder die Zugangsdaten überprüft werden.
 
-7. Zigbee-Geräte mit USB-Dongle und Zigbee2MQTT verbinden 
+7. Zigbee-Geräte mit USB-Dongle und Zigbee2MQTT verbinden  
 Unterschiede je nach Gerät. Beispiele für die im Integrationsseminar genutzten Geräte:  
 
     - [Temperatursensor SONOFF SNZB-02](https://www.zigbee2mqtt.io/devices/SNZB-02.html)
@@ -114,14 +117,17 @@ Unterschiede je nach Gerät. Beispiele für die im Integrationsseminar genutzten
 
     Es wird nach dem Anlernen automatisch ein neuer Abschnitt hinzugefügt.
     Dieser enthält als wesentliche Komponenten eine Geräte-ID des Zigbee-Geräts.
-    Zusätzlich lässt sich über das Attribut "friendly_name" das Topic festlegen, unter dem die Daten des Gerätes an den Broker weitergereicht werden. Dieses muss evtl manuell hinzugefügt werden. Im folgenden Beispiel soll vom MQTT-Subscriber später das Topic "zigbee2mqtt/temperature-sensor" genutzt werden:
+    
+    
+    Zusätzlich lässt sich über das Attribut "friendly_name" das Topic festlegen, unter dem die Daten des Gerätes an den Broker weitergereicht werden. 
+    Dieses Attibut muss evtl manuell hinzugefügt werden. Im folgenden Beispiel soll vom MQTT-Subscriber später das Topic "zigbee2mqtt/temperature-sensor" genutzt werden:
 
         devices:
         '0x00124b0029195ebb': # Geräte-ID
             friendly_name: 'temperature-sensor' # Selbst definierter Teil des gemeinsamen MQTT-Topics
 
 
-8. Web UI / Frontend
+8. Web UI / Frontend  
 Wenn folgende Zeilen in der Konfigurationsdatei ergänzt werden, kann eine Visualisierung der Zigbee2MQTT-Anwendung im Browser unter der Adresse [localhost:8080](http://localhost:8080) erreicht werden.  
 
         frontend:
