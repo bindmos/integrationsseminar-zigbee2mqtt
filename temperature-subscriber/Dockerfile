@@ -5,10 +5,10 @@ RUN pip install --no-cache-dir pipenv
 
 WORKDIR /usr/src/app
 COPY Pipfile Pipfile.lock ./
-COPY temperature_subscriber ./temperature_subscriber
+COPY . .
 
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
 
 
 ENV PYTHONUNBUFFERED=1
-ENTRYPOINT [ "pipenv","run","python","-u","./temperature_subscriber/app.py" ]
+ENTRYPOINT [ "pipenv","run","python","-u","./app.py" ]

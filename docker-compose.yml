@@ -17,6 +17,7 @@ services:
   # MQTT-Subscriber, der Temperaturdaten ausgibt, die an ihn übermittelt werden
   temperature-subscriber:
     build: .
+    working_dir: temperature-subscriber
     container_name: temperature-subscriber
     environment:
       - "MQTT_HOST=broker.mqtt"
