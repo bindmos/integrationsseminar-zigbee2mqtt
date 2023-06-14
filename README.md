@@ -58,7 +58,7 @@ Im Integrationsseminar wurden beispielhaft Temperatur- und Luftfeuchtigkeitsmess
 
 ## Installation (Im Rahmen der Abgabe bereits enthalten)
 
-Es folgt das Protokoll der durchlaufenen Schritte für evtl. Reproduktion
+Es folgt das Protokoll der durchlaufenen Schritte für evtl. Reproduktion. Im eingereichten Quellcode sind die Schritte bereits ausgeführt.
 
 1. Git und NodeJS 16 müssen lokal installiert sein. Das USB-Dongle muss in einen freien USB-Slot am PC gesteckt werden und betriebsbereit sein. Eine Treiberinstallation sollte nicht notwendig sein.
 2. Kommandozeile öffnen und in diesen Ordner navigieren
