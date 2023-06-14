@@ -2,7 +2,7 @@ version: "2.2"
 services:
   # Eclipse Mosquitto Broker
   # Port 1883
-  # Anonyme Authentifikation ohne Zugangsdaten aktiviert
+  # Anonyme Authentifikation ohne Prüfung der Zugangsdaten aktiviert
   mqtt-broker:
     image: eclipse-mosquitto:2
     container_name: broker
