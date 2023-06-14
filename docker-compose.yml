@@ -16,8 +16,7 @@ services:
       - 1883:1883
   # MQTT-Subscriber, der Temperaturdaten ausgibt, die an ihn übermittelt werden
   temperature-subscriber:
-    build: .
-    working_dir: temperature-subscriber
+    build: ./temperature-subscriber
     container_name: temperature-subscriber
     environment:
       - "MQTT_HOST=broker.mqtt"
