@@ -66,11 +66,11 @@ Es folgt das Protokoll der durchlaufenen Schritte für evtl. Reproduktion. Im ei
 2. Kommandozeile öffnen und in diesen Ordner navigieren
 3. Quellcode für Zigbee2MQTT von GitHub laden  
 Befehl  
-`git clone --depth 1 git@github.com:Koenkk/zigbee2mqtt.git src`
+`git clone --depth 1 git@github.com:Koenkk/zigbee2mqtt.git zigbee2mqtt`
 4. Abhängigkeiten von Zigbee2MQTT herunterladen  
 Befehle  
 
-    1. `cd src`
+    1. `cd zigbee2mqtt`
     2. `npm ci`
 
 5. Konfiguration  
