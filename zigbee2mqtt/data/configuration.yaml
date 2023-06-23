@@ -2,7 +2,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://localhost:1883
   user: zigbee-usb
-  password: ps&9!&yjkGgW6BrZ2SQb&vkPBBS$f9BZAkGA6&nL5B22NLY2x7Yfj%dK9735NnBA9QBwCT
+  password: supersecret_password
 serial:
   port: \\.\COM5
 devices:
