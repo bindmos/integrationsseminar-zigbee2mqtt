@@ -8,7 +8,6 @@ import json
 # This is the action that happens when a message in the topic arrives
 def on_message(client, userdata, msg):
     data = msg.payload.decode("utf-8")
-    #print(str(TZ.localize(dt.now()))+" [Message recieved] (" + str(msg.topic) + "): " + str(data))
     json_data = json.loads(data)
     temperature_now = json_data["temperature"]
     humidity_now = json_data["humidity"]
