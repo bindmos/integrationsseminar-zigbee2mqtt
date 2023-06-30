@@ -19,7 +19,7 @@ Kommunikationsprotokolle in Klammern
 
         Temperatur-Sensor -> (Zigbee) -> Zigbee-USB-Dongle -> Anwendung Zigbee2MQTT -> (MQTT) -> Mosquitto-Broker -> (MQTT) -> Temperatur-Subscriber
 
-# Temperatur-Subscriber und MQTT-Broker
+# 1. Temperatur-Subscriber und MQTT-Broker
 
 Der Temperatur-Subscriber abonniert das Topic "zigbee2mqtt/temperature-sensor" und wartet auf entsprechende Nachrichten des Temperatursensors. Wenn Temperatur- und Luftfeuchtigkeits-Messwerte empfangen werden, dann gibt die Anwendung diese auf der Kommandozeile aus. Außerdem wird ein lokaler Eclipse Mosquitto Broker gestartet, mit dem die Anwendung im Integrationsseminar genutzt wird.
 
@@ -46,12 +46,17 @@ Befehl im Hauptverzeichnis dieses Projekts ausführen
     - config.py: Umgebungsvariablen zur Konfiguration einlesen
     - lifecycle_manager.py: SIGINT oder SIGTERM-Signale für einen geregelten Abmeldeprozess vom Broker anwenden   
 
-# Zigbee2MQTT
+# 2. Zigbee2MQTT
 
 Schnittstelle zwischen Zigbee-Geräten und MQTT-Anwendungen
 Sendet mit dem USB-Dongle "Zigbee CC2531 USB Dongle" per Zigbee empfangene Daten an einen definierten MQTT-Broker
 
-Im Integrationsseminar wurden beispielhaft Temperatur- und Luftfeuchtigkeitsmesswerte des Sensors *SONOFF SNZB-02* unter dem Topic "zigbee2mqtt/temperature-sensor" an den Broker übertragen.  
+Im Integrationsseminar wurden beispielhaft Temperatur- und Luftfeuchtigkeitsmesswerte des Sensors *SONOFF SNZB-02* unter dem Topic "zigbee2mqtt/temperature-sensor" an den Broker übertragen.
+
+## Hinweis
+
+Zigbee2MQTT konnte nicht in Docker auf Windows (Windows Subsystem for Linux / kurz: WSL) realisiert werden, da WSL2 aktuell (2023-06-14) keine Kommunikation über Serielle Ports zulässt. Vielleicht ist es durch künftige Entwicklungen möglich, eine etwas "schlankere" Implementierung auszuführen, die ausschließlich auf Containern basiert.  
+Link zur Diskussion: [https://github.com/microsoft/WSL/issues/4322](https://github.com/microsoft/WSL/issues/4322)
 
 ## Benötigte Software auf dem PC / Notebook
 
@@ -138,9 +143,4 @@ Wenn folgende Zeilen in der Konfigurationsdatei ergänzt werden, kann eine Visua
 
 ## Weiterführende Dokumentation
 
-Zu finden unter der folgenden URL [Zigbee2MQTT Dokumentation](https://www.zigbee2mqtt.io/guide/getting-started/)
-
-## Hinweis
-
-Diese Anwendung konnte nicht in Docker auf Windows (Windows Subsystem for Linux / kurz: WSL) realisiert werden, da WSL2 aktuell (2023-06-14) keine Kommunikation über Serielle Ports zulässt.  
-Link zur Diskussion: [https://github.com/microsoft/WSL/issues/4322](https://github.com/microsoft/WSL/issues/4322)
+Unter der folgenden URL ist die vollständige Dokumentation mit Hinweisen zu Konfiguration und Nutzung der Library auffindbar: [Zigbee2MQTT Dokumentation](https://www.zigbee2mqtt.io/guide/getting-started/)
