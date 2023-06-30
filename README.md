@@ -80,7 +80,7 @@ Befehle
 
 5. Konfiguration  
 Zugangsdaten MQTT-Broker und COM-Port definieren
-Hierfür die Datei `"data/configuration.yaml"` bearbeiten und die entsprechenden Abschnitte in der Datei anpassen oder ergänzen, wenn nicht vorhanden.
+Hierfür die Datei `data/configuration.yaml` bearbeiten und die entsprechenden Abschnitte in der Datei anpassen oder ergänzen, wenn nicht vorhanden.
 
     ### Zugangsdaten MQTT-Broker
 
