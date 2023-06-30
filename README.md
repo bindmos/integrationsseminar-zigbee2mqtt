@@ -34,7 +34,7 @@ Befehl im Hauptverzeichnis dieses Projekts ausführen
 
     Zuerst wird das Docker-Image für den MQTT-Subscriber erstellt, anschließend werden Broker und Subscriber gestartet.
 
-## Relevante Verzeichnisse
+## Inhalt der Verzeichnisse
 
 - broker: Grundlegende Konfigurationsdatei für Eclipse Mosquitto
 - temperature-subscriber: Python-Code des MQTT-Subscribers
