@@ -25,7 +25,7 @@ Der Temperatur-Subscriber abonniert das Topic "zigbee2mqtt/temperature-sensor" u
 
 ## Installation
 
-1. Docker und Docker-Compose müssen lokal installiert sein
+1. Docker und Docker-Compose müssen lokal installiert sein. Unter Windows ist auch Docker Desktop möglich.
 2. Datei "docker-compose.yml"  
 In der Datei "docker-compose.yml" sind über die Umgebungsvariablen Standardwerte definiert, mit denen Broker, Subscriber und die Zigbee2MQTT-Anwendung im Rahmen des Integrationsseminars betrieben wurden.
 3. Broker und Subscriber starten  
